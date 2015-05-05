@@ -72,6 +72,12 @@ If you want your C2C to be a hidden Tor site, visit the link below to configure 
 
 <a href="https://www.torproject.org/docs/tor-hidden-service.html.en" target="_blank">https://www.torproject.org/docs/tor-hidden-service.html.en</a>
 
+<h1>PlugBot Apps</h1>
+
+To get started using PlugBot, we've provided the following Gist scripts that can be used with the PlugBot project:
+
+<a href="https://gist.github.com/redteamsecurity" target="_blank">https://gist.github.com/redteamsecurity</a>
+
 <h1>Contributors</h1>
 
 Jeremiah is an information security consultant, not a developer. Therefore much help is needed to improve the project all around. If you're proficient in PHP / CodeIgniter and want to contribute, contact jeremiah[at]redteamsecure[dot]com. Help is greatly needed!
