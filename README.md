@@ -34,6 +34,34 @@ Carry out the following steps to install:
 	<li>cURL, wput, wget</li>
 </ul>
 
+<h1>Configure .htaccess</h1>
+
+The PlugBot project is built on the <a href="http://www.codeigniter.com/" target="_blank">CodeIgniter Framework</a>. To get the C2C to work effectively, you will likely need to add an .htaccess file to the root of your code folder.
+
+		<IfModule mod_rewrite.c>
+		  RewriteEngine On
+		  # !IMPORTANT! Set your RewriteBase here and don't forget trailing and leading
+		  #  slashes.
+		  # If your page resides at
+		  #  http://www.example.com/mypage/test1
+		  # then use
+		  # RewriteBase /mypage/test1/
+		  RewriteBase /pb/
+		  RewriteCond %{REQUEST_FILENAME} !-f
+		  RewriteCond %{REQUEST_FILENAME} !-d
+		  RewriteRule ^(.*)$ index.php?/$1 [L]
+		</IfModule>
+		
+		<IfModule !mod_rewrite.c>
+		  # If we don't have mod_rewrite installed, all 404's
+		  # can be sent to index.php, and everything works as normal.
+		  # Submitted by: ElliotHaughin
+		
+		  ErrorDocument 404 /index.php
+		</IfModule>
+
+For more information, go here: <a href="http://www.codeigniter.com/userguide2/general/urls.html" target="_blank">http://www.codeigniter.com/userguide2/general/urls.html</a>
+
 <h1>Login</h1>
 
 The default username is <b>admin</b> and the default password is <b>admin</b>.
