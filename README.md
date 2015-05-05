@@ -38,6 +38,12 @@ Carry out the following steps to install:
 
 The default username is <b>admin</b> and the default password is <b>admin</b>.
 
+<h1>Tor Setup</h1>
+
+If you want your C2C to be a hidden Tor site, visit the link below to configure it accordingly:
+
+<a href="https://www.torproject.org/docs/tor-hidden-service.html.en" target="_blank">https://www.torproject.org/docs/tor-hidden-service.html.en</a>
+
 <h1>Contributors</h1>
 
 Jeremiah is an information security consultant, not a developer. Therefore much help is needed to improve the project all around. If you're proficient in PHP / CodeIgniter and want to contribute, contact jeremiah[at]redteamsecure[dot]com. Help is greatly needed!
