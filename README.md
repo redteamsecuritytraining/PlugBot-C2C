@@ -34,7 +34,7 @@ Carry out the following steps to install:
 	<li>cURL, wput, wget</li>
 </ul>
 
-<b>Login</b>
+<h1>Login</h1>
 
 The default username is <b>admin</b> and the default password is <b>admin</b>.
 
