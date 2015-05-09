@@ -131,6 +131,8 @@ class Job extends CI_Controller {
                 $data = array(
                     'job_status' => '8' // 1 = output saved to PB
                 );
+                
+                $update_status = '8';
             }
 
             // Update status
@@ -140,6 +142,8 @@ class Job extends CI_Controller {
                 $data = array(
                     'job_status' => '2' // 2 = Job received
                 );
+                
+                $update_status = '2';
             }
 
             if ($status == 4)
@@ -148,13 +152,23 @@ class Job extends CI_Controller {
                 $data = array(
                     'job_status' => '9' // 9 = Interactive job, no ouput
                 );
+                
+                $update_status = '9';                
             }
-
-            // Update the record
-            $this->db->where('job_id', $rec_id);
-            $this->db->where('job_botkey', $b_key);
-            $this->db->update('tblJob', $data);
-
+            
+            if ($status == 99)
+            {
+                // If job is interactive, there is no output
+                $data = array(
+                    'job_status' => '11' // 9 = Interactive job, no ouput
+                );
+                
+                $update_status = '11';                
+            }            
+            
+            // Update record
+            $this->job_model->updateJobReceived($rec_id, $b_key, $update_status);
+            
             // Log the event
             $this->log_model->log_checkin($b_key,'2','BOT: Bot received job.');
 
@@ -173,6 +187,11 @@ class Job extends CI_Controller {
                 $this->load->view('job_upd_view',$data);
             }
 
+            if ($status == 99)
+            {
+                $data['status'] = '11'; // Job received by bot
+                $this->load->view('job_upd_view',$data);
+            }            
         }
 
         if (!$result_bkey OR !$result_id)

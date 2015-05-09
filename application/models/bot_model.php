@@ -29,6 +29,20 @@ class Bot_model extends CI_Model {
         }    
     }
     
+    function getBotKey($id)
+    {
+        $query = $this->db->query('SELECT bot_key FROM tblBot WHERE bot_id='.$id.';');
+        
+        if ($query->num_rows== 1)
+        {
+            $row = $query->row(); //takes only one result
+            $item = $row->bot_key;   
+            return $item;
+        } else {
+            return false;
+        }    
+    }    
+    
     function countJobs($status, $botkey)
     {
         // Count jobs based on status
@@ -80,6 +94,21 @@ class Bot_model extends CI_Model {
                 return "[[[ UNIDENTIFIED BOTKEY ]]]";
             } 
         }
+    }
+    
+    function getName($id)
+    {
+        $this->db->where('bot_id', $id);
+        $query = $this->db->get('tblBot');
+        
+        if ($query->num_rows > 0)
+        {
+            $row = $query->row(); //takes only one result row
+            $bot_name = $row->bot_name;   
+            return $bot_name;
+        } else {
+            return "???";
+        }         
     }
     
     function countBots()

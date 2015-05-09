@@ -566,7 +566,106 @@ class Login extends CI_Controller {
             redirect(base_url());
         }
     }
+    
+    function editBot()
+    {
+        /*
+         * Displays the edit bot page
+         */
+        
+        // Security check
+        $this->_is_logged_in();
+        
+        // Help
+        $data['help'] = $this->plugbot_model->setHelp();
+        
+        // Get id from URI
+        $id = trim(xss_clean($this->uri->segment(3)));        
 
+        // Get botkey
+        $data['botkey'] = $this->bot_model->getBotKey($id);
+        
+        // Get botname
+        $data['botname'] = $this->bot_model->getName($id);
+
+        // Token
+        $token['token'] = $this->_secToken();
+
+        $this->load->view('includes/header.php', $data);
+        $this->load->view('manage_botedit_view', $token);
+    }
+    
+    function moveBot()
+    {
+        /*
+         * Displays the edit bot page
+         */
+        
+        // Security check
+        $this->_is_logged_in();
+        
+        // Help
+        $data['help'] = $this->plugbot_model->setHelp();
+
+        // Get bots
+        $data['bot_data'] = $this->bot_model->getBotData();
+
+        // Token
+        $token['token'] = $this->_secToken();
+
+        $this->load->view('includes/header.php', $data);
+        $this->load->view('manage_botmove_view', $token);
+    }  
+    
+    function doEditBot()
+    {
+        /*
+         * Processes the edit bot request to change the Dropzone URL
+         * by adding a special job
+         */
+        
+        // Security check
+        $this->_is_logged_in();
+//        
+//        $job_name = xss_clean(trim($this->input->post('Edit Bot Dropzone')));
+//        $job_botkey = xss_clean(trim($this->input->post('job_botkey')));
+//        $job_app_random = xss_clean(trim($this->input->post('job_app_random')));
+//        $job_command = xss_clean(trim($this->input->post('job_command')));
+//        $job_output = $this->input->post('job_output'); // how the output will be handled
+//        $job_random = mt_rand();
+//        $job_status = '1'; // Status of 1 = new job to be picked up by bot
+//        $token = xss_clean(trim($this->input->post('token')));
+
+        $job_name = 'Edit Dropzone';
+        $job_botkey = xss_clean(trim($this->input->post('botkey')));
+        $job_app_random = mt_rand(); // not used
+        $job_command = xss_clean(trim($this->input->post('bot_dropzone')));
+        $job_output = '10'; // Type 10 signifies a Dropzone Change
+        $job_random = mt_rand();
+        $job_status = '1'; // Status of 1 = new job to be picked up by bot
+        $token = xss_clean(trim($this->input->post('token')));        
+        
+        if ($this->input->post('token') == $this->session->userdata('token'))
+        {
+            // Process request
+            if ($job_name != '' AND $job_botkey != '' AND $job_app_random != '' AND $job_command != '' AND $job_output != '' AND $job_random != '' AND $job_status != '')
+            {
+                // Add to db
+                $this->job_model->addJob($job_name, $job_botkey, $job_app_random, $job_random, $job_status, $job_command, $job_output);
+                $this->session->set_flashdata('messages', '<div class="notification success"><span class="strong">SUCCESS! </span> Dropzone change job requested </div>');
+                redirect('login/managebots');
+            } else {
+                // Error
+                $this->session->set_flashdata('messages', '<div class="notification error"><span class="strong">ERROR! </span> All fields are required </div>');
+                redirect('login/managebots');
+            }
+        } else {
+            // CSRF?
+            $this->log_model->log_checkin('001', '69', 'C&C ERROR: Detected a potential CSRF attack!');
+            redirect(base_url());
+        }      
+    }
+    
     function delLogsNCI()
     {
         /*

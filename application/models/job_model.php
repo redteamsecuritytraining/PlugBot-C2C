@@ -133,6 +133,19 @@ class Job_model extends CI_Model {
 
         $this->db->update('tblJob', $job);
     }
+    
+    function updateJobReceived($id, $botkey, $job_status)
+    {
+        // Locate the job to be updated
+        $this->db->where('job_id', $id);
+        $this->db->where('job_botkey', $botkey);
+
+        $job = array(
+            'job_status'  => 	$job_status,
+        );
+
+        $this->db->update('tblJob', $job);
+    }    
 
     function getAllJobs()
     {
