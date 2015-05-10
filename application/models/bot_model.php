@@ -14,6 +14,20 @@ class Bot_model extends CI_Model {
                 return false;
         }
     }
+
+    function getBotID($botkey)
+    {
+        $query = $this->db->query('SELECT bot_id FROM tblBot WHERE bot_key='.$botkey.';');
+        
+        if ($query->num_rows== 1)
+        {
+            $row = $query->row(); //takes only one result
+            $bot_id = $row->bot_id;   
+            return $bot_id; 
+        } else {
+            return false;
+        }    
+    }
     
     function getPrivateKey($botkey)
     {

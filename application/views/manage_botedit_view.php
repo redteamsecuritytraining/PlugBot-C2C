@@ -57,7 +57,7 @@
 
               <div class="row">
                 <label></label>
-                <input type="submit" value="Save Bot" class="button" />
+                <input type="submit" value="Save" class="button" onclick="return confirm('Are you sure you want to edit this Bot?')" />
               </div>
 
             </form>

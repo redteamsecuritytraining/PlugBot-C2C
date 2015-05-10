@@ -28,7 +28,7 @@
 
       <!-- Start Page Header -->
       <div id="page-header">
-        <h1>Move Bot</h1>
+        <h1>Move Bot -> <?php echo $botname; ?></h1>
       </div>
       <!-- End Page Header -->
 
@@ -46,17 +46,18 @@
                 <div class="notification warning"> <span class="strong">WARNING! </span>This will delete the bot/data and move it to another PlugBot botnet</div>
           <div class="box-header"> Bot Info </div>
           <div class="box">
-            <form id="editbotform" name="editbotform" method="post" action="<?php echo base_url(); ?>login/doEditBot">
+            <form id="editbotform" name="editbotform" method="post" action="<?php echo base_url(); ?>login/doMoveBot">
 
               <div class="row">
                 <label>Bot Dropzone URL</label>
-                <input type="text" id="bot_name" name="bot_name" class="error app_tips" size="50" title="Enter a descriptive Bot name" />
+                <input type="text" id="bot_dropzone" name="bot_dropzone" class="error app_tips" size="50" title="Enter a descriptive Bot name" />
+                <input type="hidden" name="botkey" id="botkey" value="<?php echo $botkey; ?>" />              
                 <input type="hidden" name="token" id="token" value="<?php echo $token; ?>" />
               </div>
 
               <div class="row">
                 <label></label>
-                <input type="submit" value="Save Bot" class="button" />
+                <input type="submit" value="Move Bot" class="button" onclick="return confirm('Are you sure you want to move this Bot?')" />
               </div>
 
             </form>

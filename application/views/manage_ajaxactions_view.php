@@ -15,4 +15,5 @@
 <?php endif; ?>
 
 <?php if ($status == '11'): ?><img src="<?php echo base_url(); ?>img/icons/small/botedit.png"  border="0" title="Dropzone Changed" /> <a href="<?php echo base_url().'login/delJob/'.$id.'/'.$token; ?>"><img src="<?php echo base_url().'img/icons/small/Erase.png'?>" onclick="return confirm('Are you sure you want to delete this Job?')" /></a> <?php endif;?>
- 
+
+<?php if ($status == '12'): ?><img src="<?php echo base_url(); ?>img/icons/small/botchange.png"  border="0" title="Botnet Changed" /> <a href="<?php echo base_url().'login/delJob/'.$id.'/'.$token; ?>"><img src="<?php echo base_url().'img/icons/small/Erase.png'?>" onclick="return confirm('Are you sure you want to delete this Job?')" /></a> <?php endif;?>

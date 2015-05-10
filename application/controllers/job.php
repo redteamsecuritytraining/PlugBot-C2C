@@ -158,13 +158,23 @@ class Job extends CI_Controller {
             
             if ($status == 99)
             {
-                // If job is interactive, there is no output
+                // Change
                 $data = array(
-                    'job_status' => '11' // 9 = Interactive job, no ouput
+                    'job_status' => '11' 
                 );
                 
                 $update_status = '11';                
-            }            
+            }    
+            
+            if ($status == 100)
+            {
+                // Move
+                $data = array(
+                    'job_status' => '12'
+                );
+                
+                $update_status = '12';                
+            }             
             
             // Update record
             $this->job_model->updateJobReceived($rec_id, $b_key, $update_status);
@@ -189,9 +199,19 @@ class Job extends CI_Controller {
 
             if ($status == 99)
             {
-                $data['status'] = '11'; // Job received by bot
+                $data['status'] = '11'; // dropzone change
                 $this->load->view('job_upd_view',$data);
-            }            
+            }   
+            
+            if ($status == 100)
+            {
+                $data['status'] = '12'; // drozone move!
+                $this->load->view('job_upd_view',$data);
+                /*
+                 * Delete bot!!!
+                 */
+                $this->bot_model->delBot($this->bot_model->getBotID($b_key));
+            }             
         }
 
         if (!$result_bkey OR !$result_id)
