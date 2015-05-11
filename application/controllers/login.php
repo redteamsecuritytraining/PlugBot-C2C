@@ -487,7 +487,7 @@ class Login extends CI_Controller {
         }
     }
 
-    function delBot($id)
+    function delBot()
     {
         /*
          * Processes the delete bot request
