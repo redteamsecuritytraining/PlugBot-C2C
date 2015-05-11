@@ -495,6 +495,9 @@ class Login extends CI_Controller {
         
         // Security check
         $this->_is_logged_in();
+
+        // Get botid from URI
+        $id = trim(xss_clean($this->uri->segment(3)));
         
         // Get token from URI
         $token = trim(xss_clean($this->uri->segment(4)));

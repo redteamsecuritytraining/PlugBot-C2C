@@ -149,7 +149,7 @@ class Bot_model extends CI_Model {
     {
         // Delete Bot
         $this->db->where('bot_id', $id);
-        $this->db->empty_table('tblBot');
+        $this->db->delete('tblBot');
     }
 
     function addBot($botname, $bot_privatekey, $botkey)
