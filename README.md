@@ -18,7 +18,7 @@ Carry out the following steps to install:
 	<li>Open application/config/config.php and change the encryption_key to arbitrary/random characters (line 232)</li>
 	<li>Open application/config/database.php and set your database's hostname, username and password (lines 51 to 53)</li>
 	<li>Ensure the system requirements below are installed</li>
-	<li>Import the MySQL database from file</li>
+	<li>Import the MySQL database from file (db_plugbot.sql) into an empty db titled: db_plugbot</li>
 	<li>Once system is running, change your password!</li>
 </ol>
 
