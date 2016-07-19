@@ -59,6 +59,10 @@ The PlugBot project is built on the <a href="http://www.codeigniter.com/" target
 		
 		  ErrorDocument 404 /index.php
 		</IfModule>
+		
+Be sure to enable mod_rewrite if you are using Apache2
+
+<code>sudo a2enmod rewrite</code>
 
 For more information, go here: <a href="http://www.codeigniter.com/userguide2/general/urls.html" target="_blank">http://www.codeigniter.com/userguide2/general/urls.html</a>
 
