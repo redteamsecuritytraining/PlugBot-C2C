@@ -1,5 +1,3 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/r0jBLzmrH9w" frameborder="0" allowfullscreen></iframe>﻿
-REPLY
 
 
 <h1>Synopsis</h1>
@@ -10,7 +8,7 @@ PlugBot project is a security research project by <a href="http://www.redteamsec
 
 Jeremiah began developing the concept in early 2010 upon the surge of <a href="http://en.wikipedia.org/wiki/Plug_computer">plug computers</a> into the tech market. Although the development ceased not soon after, the research aspect continued into his dissertation and finally came to life again in early 2015.
 
-<h1>C2C Installation</h2>
+<h1>C2C Installation</h1>
 
 Carry out the following steps to install:
 
