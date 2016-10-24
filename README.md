@@ -1,5 +1,4 @@
 
-
 <h1>Synopsis</h1>
 
 PlugBot project is a security research project by <a href="http://www.redteamsecure.com">RedTeam Security</a>, led by Jeremiah Talamantes. It is designed to be a proof-of-concept / experimental foray into the development of software that could potentially support the concept of a hardware botnet. The project is made up of two components, PlugBot Bot and PlugBot Command & Control. The hardware component to this project is intended to be single-board computers, such as: Raspberry Pi, Beaglebone, Cubox, etc.
