@@ -1,3 +1,8 @@
+<h1>PlugBot Videos</h1>
+
+Check out these YouTube videos featuring the PlugBot:<br>
+<a href="https://youtu.be/r0jBLzmrH9w">Hackers Love This Tiny Box</a><br>
+<a href="https://www.youtube.com/channel/UCnARzOoFCcpSO9PTlIAEywg">RedTeam Security's YouTube</a>
 
 <h1>Synopsis</h1>
 
